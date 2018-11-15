@@ -1,1 +1,1 @@
-##Lita Support Bot
+# Lita Support Bot
