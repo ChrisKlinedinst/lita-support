@@ -6,9 +6,9 @@ Lita.load_locales Dir[File.expand_path(
 
 require "helpers/api"
 require "helpers/url_parser"
-require "lita/handlers/lookup"
+require "lita/handlers/support"
 
-Lita::Handlers::Lookup.template_root File.expand_path(
+Lita::Handlers::Support.template_root File.expand_path(
   File.join("..", "..", "templates"),
  __FILE__
 )

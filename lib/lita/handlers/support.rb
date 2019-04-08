@@ -25,12 +25,12 @@ module Lita
           /^#{PREFIX}.*help$/,
           :showhelp,
           command: true,
-          :help => { "lookup help" => 'output help to user privately' }
+          :help => { "support help" => 'output help to user privately' }
         )
 
       route(
           /^#{PREFIX}\suser\s+-/,
-          :lookup_user,
+          :support_user,
           command: true,
           kwargs: {
             alert_id: {
@@ -125,7 +125,7 @@ module Lita
 
       route(
           /^#{PREFIX}\shost\s+(\S+)/,
-          :lookup_host,
+          :support_host,
           command: true,
           kwargs: {
             env: {
@@ -136,7 +136,7 @@ module Lita
 
       route(
           /^#{PREFIX}\sprs\s+(\S+)/,
-          :lookup_prs,
+          :support_prs,
           command: true,
         )
 
@@ -159,7 +159,7 @@ module Lita
         reply_with_user(act, 'email', act.matches.flatten.first)
       end
 
-      def lookup_user(act)
+      def support_user(act)
 
         act.reply act.extensions[:kwargs]
 
