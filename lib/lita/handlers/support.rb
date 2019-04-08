@@ -251,7 +251,7 @@ module Lita
           reply_text += "collaborator_id: #{response['collaborator_id']}\n"
           reply_text += "collaborator_email: #{response['collaborator_email']}\n"
         end
-        reply_text += "user activity: https://metrics.librato.com/s/spaces/46752/?source=%2a%3A#{uid}%20OR%20%2a_#{uid}\n"
+        reply_text += "user activity: https://motherbrain.librato.com/billing_reports/top_metrics/#{uid}"
         reply_text += "admin: https://admins.appoptics.com/organization/#{uid}"
 
         reply_text
