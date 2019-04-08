@@ -234,11 +234,14 @@ module Lita
         if (response['name']) then
           reply_text += "name: #{response['name']}\n"
         end
+        if (response['company']) then
+          reply_text += "company: #{response['company']}\n"
+        end
         if (response['plan_name']) then
             reply_text += "plan_name: #{response['plan_name']}\n"
         end
-        if (response['company']) then
-          reply_text += "company: #{response['company']}\n"
+        if (response['MRR']) then
+            reply_text += "MRR: #{response['MRR']}\n"
         end
         reply_text += "created_at: #{response['created_at']}\n"
         unless response['deleted_time'] == 0
@@ -249,7 +252,7 @@ module Lita
           reply_text += "collaborator_email: #{response['collaborator_email']}\n"
         end
         reply_text += "user activity: https://metrics.librato.com/s/spaces/46752/?source=%2a%3A#{uid}%20OR%20%2a_#{uid}\n"
-        reply_text += "admin: https://metrics.librato.com/admins/user/#{uid}"
+        reply_text += "admin: https://admins.appoptics.com/organization/#{uid}"
 
         reply_text
       end
