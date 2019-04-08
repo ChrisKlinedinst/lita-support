@@ -19,7 +19,7 @@ module Lita
 
       config :api_baseurl
 
-      PREFIX = 'lookup'
+      PREFIX = 'support'
 
       route(
           /^#{PREFIX}.*help$/,
@@ -345,6 +345,6 @@ EOS
 
     end
 
-    Lita.register_handler(Lookup)
+    Lita.register_handler(Support)
   end
 end
