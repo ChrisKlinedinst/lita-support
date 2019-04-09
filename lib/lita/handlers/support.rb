@@ -28,7 +28,7 @@ module Lita
           kwargs: {
             user_id: {
               short: "u"
-            }
+            },
             verbose: {
               short: "v",
               boolean: false
