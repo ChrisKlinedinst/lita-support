@@ -36,19 +36,17 @@ module Lita
       # callbacks
       def support_user(act)
 
-        act.reply act.extensions[:kwargs]
+        param_key="organization_id"
 
-        param_count = 0
-        param_key = nil
-        param_value = nil
-        act.extensions[:kwargs].each do |key, value|
-          unless (['verbose','env'].include?(key.to_s) || value == nil) then
-            param_key = "organization_id"
-            param_value = value
-            param_count += 1
-          end
+        begin
+          uri = URI.parse("#{config.api_baseurl}/api?#{param_key}=#{param_value}")
+          response = Net::HTTP.get_response(uri)
+          result = JSON.parse(response.body)
+          act.reply '```' + format_user(result) + '```'
+        rescue Exception => e
+          act.reply '```' + "Exception: #{e}" + '```'
+          act.reply "uri: #{uri}"
         end
-
       end
 
 
