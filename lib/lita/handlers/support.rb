@@ -226,7 +226,7 @@ module Lita
       end
 
       def format_user(response)
-        unless uid = response['organization_id']
+        unless uid = response['user_id']
           return 'Not found'
         end
         reply_text = "user_id: #{uid}\n"
