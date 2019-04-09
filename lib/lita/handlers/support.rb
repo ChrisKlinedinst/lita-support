@@ -189,7 +189,7 @@ module Lita
         end
 
         begin
-          uri = URI.parse("#{config.api_baseurl}/api?#{param_key}=#{param_value}")
+          uri = URI.parse("#{config.api_baseurl}/api", "#{param_key}=#{param_value}")
           response = Net::HTTP.get_response(uri)
           result = JSON.parse(response.body)
           act.reply '```' + format_user(result) + '```'
