@@ -35,6 +35,7 @@ module Lita
             }
           }
         )
+      end
 
 
       # callbacks
