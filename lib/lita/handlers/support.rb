@@ -50,7 +50,7 @@ module Lita
         end
 
         begin
-          uri = URI.parse("#{config.api_baseurl}/api?#{param_key}=#{param_value}")
+          uri = URI.parse("#{config.api_baseurl}/api?#{param}=#{param}")
           response = Net::HTTP.get_response(uri)
           result = JSON.parse(response.body)
           act.reply '```' + format_user(result) + '```'
@@ -62,7 +62,7 @@ module Lita
 
 
       def reply_with_user(act, param, value)
-        response = API.get("#{config.api_baseurl}/api", "#{param_key}=#{param_value}")
+        response = API.get("#{config.api_baseurl}/api", "#{param}=#{value}")
         act.reply "```#{format_user(response)}```"
       end
 
