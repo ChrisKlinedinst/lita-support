@@ -7,16 +7,6 @@ module Lita
   module Handlers
     class Support < Handler
 
-      # LOOKUP!
-      #        __         __
-      #       /.-'       `-.\
-      #      //             \\
-      #     /j_______________j\
-      #    /o.-==-. .-. .-==-.o\
-      #    ||      )) ((      ||
-      #     \\____//   \\____//   hjw
-      #      `-==-'     `-==-'
-
       config :api_baseurl
 
       PREFIX = 'support'
@@ -25,48 +15,10 @@ module Lita
           /^#{PREFIX}\suser\s([0-9]+)/,
           :support_user,
           command: true,
-          kwargs: {
-            env: {
-              default: "production"
-            }
-          }
         )
 
-
       # callbacks
-      def support_user(act)
-
-        act.reply act.extensions[:kwargs]
-
-        param_count = 0
-        param_key = nil
-        param_value = nil
-        act.extensions[:kwargs].each do |key, value|
-          unless (['verbose','env'].include?(key.to_s) || value == nil) then
-            param_key = "organization_id"
-            param_value = value
-            param_count += 1
-          end
-        end
-
-        begin
-          uri = URI.parse("#{config.api_baseurl}/api?#{param}=#{param}")
-          response = Net::HTTP.get_response(uri)
-          result = JSON.parse(response.body)
-          act.reply '```' + format_user(result) + '```'
-        rescue Exception => e
-          act.reply '```' + "Exception: #{e}" + '```'
-          act.reply "uri: #{uri}"
-        end
-      end
-
-
-      def reply_with_user(act, param, value)
-        response = API.get("#{config.api_baseurl}/api", "#{param}=#{value}")
-        act.reply "```#{format_user(response)}```"
-      end
-
-      def format_user(response)
+      def support_user(response)
         unless uid = response['user_id']
           return 'Not found'
         end
