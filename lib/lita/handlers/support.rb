@@ -49,12 +49,6 @@ module Lita
           end
         end
 
-        if (param_count != 1) then
-          act.reply "Please use exactly one user search criteria, such as user_id, metric_id, alert_id, etc. (env and verbose flags are not search criteria)"
-          act.reply "Arguments you used: #{act.extensions[:kwargs]}"
-          return nil
-        end
-
       end
 
 
