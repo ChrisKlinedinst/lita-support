@@ -36,9 +36,18 @@ module Lita
       # callbacks
       def support_user(act)
 
-        param_key="organization_id"
-        
         act.reply act.extensions[:kwargs]
+
+        param_count = 0
+        param_key = nil
+        param_value = nil
+        act.extensions[:kwargs].each do |key, value|
+          unless (['verbose','env'].include?(key.to_s) || value == nil) then
+            param_key = key.to_s
+            param_value = value
+            param_count += 1
+          end
+        end
 
         begin
           uri = URI.parse("#{config.api_baseurl}/api?#{param_key}=#{param_value}")
