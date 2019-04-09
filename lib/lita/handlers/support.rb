@@ -62,7 +62,7 @@ module Lita
 
 
       def reply_with_user(act, param, value)
-        response = API.get("#{config.api_baseurl}/api", "#{param}=#{value}")
+        response = API.get("#{config.api_baseurl}/api", "#{param_key}=#{param_value}")
         act.reply "```#{format_user(response)}```"
       end
 
