@@ -22,16 +22,12 @@ module Lita
       PREFIX = 'support'
 
       route(
-          /^#{PREFIX}\suser\s+-/,
+          /^#{PREFIX}\suser\s([0-9]+)/,
           :support_user,
           command: true,
           kwargs: {
-            user_id: {
-              short: "u"
-            },
-            verbose: {
-              short: "v",
-              boolean: false
+            env: {
+              default: "production"
             }
           }
         )
@@ -57,24 +53,6 @@ module Lita
           act.reply "Please use exactly one user search criteria, such as user_id, metric_id, alert_id, etc. (env and verbose flags are not search criteria)"
           act.reply "Arguments you used: #{act.extensions[:kwargs]}"
           return nil
-        end
-
-        environment = act.extensions[:kwargs][:env]
-        verbose = (act.extensions[:kwargs][:verbose]) ? true : false
-
-        # Slack auto formats email addresses to <mailto:email|email>.
-        if param_key == 'email'
-          param_value.gsub!(/.*mailto:([^\|]+).*/, '\1')
-        end
-
-        begin
-          uri = URI.parse("#{config.api_baseurl}/api", "#{param_key}=#{param_value}")
-          response = Net::HTTP.get_response(uri)
-          result = JSON.parse(response.body)
-          act.reply '```' + format_user(result) + '```'
-        rescue Exception => e
-          act.reply '```' + "Exception: #{e}" + '```'
-          act.reply "uri: #{uri}"
         end
 
       end
