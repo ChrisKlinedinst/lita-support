@@ -37,6 +37,8 @@ module Lita
       def support_user(act)
 
         param_key="organization_id"
+        
+        act.reply act.extensions[:kwargs]
 
         begin
           uri = URI.parse("#{config.api_baseurl}/api?#{param_key}=#{param_value}")
