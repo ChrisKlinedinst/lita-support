@@ -19,7 +19,7 @@ module Lita
 
       config :api_baseurl
       config :api_user
-      config :api_password
+      config :api_pass
 
 
 
@@ -165,7 +165,7 @@ module Lita
 
       def support_user(act)
 
-        :api_baseurl.authenticate(config.api_user, config.api_password)
+        :api_baseurl.authenticate(config.api_user, config.api_pass)
         conn = :api_baseurl.connection
 
         act.reply act.extensions[:kwargs]
