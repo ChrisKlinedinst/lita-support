@@ -221,7 +221,7 @@ module Lita
       # helpers
 
       def reply_with_user(act, param, value)
-        response = API.get("#{config.api_baseurl}/api", "#{param}=#{value}")
+        response = API.get("#{config.api_baseurl}/lookup/user", "#{param}=#{value}")
         act.reply "```#{format_user(response)}```"
       end
 
