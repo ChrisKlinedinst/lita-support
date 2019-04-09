@@ -111,6 +111,12 @@ module Lita
         if (response['company']) then
           reply_text += "company: #{response['company']}\n"
         end
+        if (response['plan_name']) then
+          reply_text += "plan_name: #{response['company']}\n"
+        end
+        if (response['mrr']) then
+          reply_text += "mrr: #{response['company']}\n"
+        end
         reply_text += "created_at: #{response['created_at']}\n"
         unless response['deleted_time'] == 0
           reply_text += "deleted_time: #{response['deleted_time']}\n"
