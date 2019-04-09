@@ -31,7 +31,7 @@ module Lita
             metric_id: {
               short: "m"
             },
-            user_id: {
+            organization_id: {
               short: "u"
             },
             stream_id: {
@@ -68,7 +68,7 @@ module Lita
         end
 
         if (param_count != 1) then
-          act.reply "Please use exactly one user search criteria, such as user_id, metric_id, alert_id, etc. (env and verbose flags are not search criteria)"
+          act.reply "Please use exactly one user search criteria, such as organization_id, metric_id, alert_id, etc. (env and verbose flags are not search criteria)"
           act.reply "Arguments you used: #{act.extensions[:kwargs]}"
           return nil
         end
@@ -103,7 +103,7 @@ module Lita
         unless uid = response['organization_id']
           return 'Not found'
         end
-        reply_text = "user_id: #{uid}\n"
+        reply_text = "organization_id: #{uid}\n"
         reply_text += "email: #{response['email']}\n"
         if (response['name']) then
           reply_text += "name: #{response['name']}\n"
