@@ -82,7 +82,7 @@ module Lita
         end
 
         begin
-          uri = URI.parse("#{config.api_baseurl}/lookup/user?#{param_key}=#{param_value}")
+          uri = URI.parse("#{config.api_baseurl}/api?#{param_key}=#{param_value}")
           response = Net::HTTP.get_response(uri)
           result = JSON.parse(response.body)
           act.reply '```' + format_user(result) + '```'
@@ -95,12 +95,12 @@ module Lita
 
       #response
       def reply_with_user(act, param, value)
-        response = API.get("#{config.api_baseurl}/lookup/user", "#{param}=#{value}")
+        response = API.get("#{config.api_baseurl}/api", "#{param}=#{value}")
         act.reply "```#{format_user(response)}```"
       end
 
       def format_user(response)
-        unless uid = response['user_id']
+        unless uid = response['organization_id']
           return 'Not found'
         end
         reply_text = "user_id: #{uid}\n"
