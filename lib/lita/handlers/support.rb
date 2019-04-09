@@ -125,6 +125,7 @@ module Lita
         reply_text
       end
 
+    end
     Lita.register_handler(Support)
   end
 end
