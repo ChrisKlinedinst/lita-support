@@ -18,6 +18,10 @@ module Lita
       #      `-==-'     `-==-'
 
       config :api_baseurl
+      config :api_user
+      config :api_password
+
+
 
       PREFIX = 'support'
 
@@ -160,6 +164,9 @@ module Lita
       end
 
       def support_user(act)
+
+        :api_baseurl.authenticate(config.api_user, config.api_password)
+        conn = :api_baseurl.connection
 
         act.reply act.extensions[:kwargs]
 
