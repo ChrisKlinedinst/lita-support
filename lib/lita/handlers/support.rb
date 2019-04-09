@@ -41,9 +41,6 @@ module Lita
       # callbacks
       def support_user(act)
 
-        :api_baseurl.authenticate(config.api_user, config.api_pass)
-        conn = :api_baseurl.connection
-
         act.reply act.extensions[:kwargs]
 
         param_count = 0
