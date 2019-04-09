@@ -152,7 +152,7 @@ module Lita
       end
 
       def find_by_user(act)
-        reply_with_user(act, 'user_id', act.matches.flatten.first)
+        reply_with_user(act, 'organization_id', act.matches.flatten.first)
       end
 
       def find_by_email(act)
@@ -226,7 +226,7 @@ module Lita
       end
 
       def format_user(response)
-        unless uid = response['user_id']
+        unless uid = response['organization_id']
           return 'Not found'
         end
         reply_text = "user_id: #{uid}\n"
