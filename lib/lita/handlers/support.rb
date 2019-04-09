@@ -43,7 +43,7 @@ module Lita
         param_value = nil
         act.extensions[:kwargs].each do |key, value|
           unless (['verbose','env'].include?(key.to_s) || value == nil) then
-            param_key = key.to_s
+            param_key = "organization_id"
             param_value = value
             param_count += 1
           end
