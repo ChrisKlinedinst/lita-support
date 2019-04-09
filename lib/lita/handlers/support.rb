@@ -168,7 +168,7 @@ module Lita
         param_value = nil
         act.extensions[:kwargs].each do |key, value|
           unless (['verbose','env'].include?(key.to_s) || value == nil) then
-            param_key = key.to_s
+            param_key = "organization_id"
             param_value = value
             param_count += 1
           end
@@ -189,7 +189,7 @@ module Lita
         end
 
         begin
-          uri = URI.parse("#{config.api_baseurl}/lookup/user?#{param_key}=#{param_value}")
+          uri = URI.parse("#{config.api_baseurl}/api?#{param_key}=#{param_value}")
           response = Net::HTTP.get_response(uri)
           result = JSON.parse(response.body)
           act.reply '```' + format_user(result) + '```'
@@ -221,7 +221,7 @@ module Lita
       # helpers
 
       def reply_with_user(act, param, value)
-        response = API.get("#{config.api_baseurl}/lookup/user", "#{param}=#{value}")
+        response = API.get("#{config.api_baseurl}/api", "#{param}=#{value}")
         act.reply "```#{format_user(response)}```"
       end
 
