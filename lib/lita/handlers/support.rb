@@ -108,6 +108,9 @@ module Lita
         if (response['name']) then
           reply_text += "name: #{response['name']}\n"
         end
+        if (response['swicus_id']) then
+          reply_text += "swicus_id: #{response['swicus_id']}\n"
+        end
         if (response['company']) then
           reply_text += "company: #{response['company']}\n"
         end
