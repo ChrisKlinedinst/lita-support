@@ -118,9 +118,6 @@ module Lita
           reply_text += "mrr: #{response['mrr']}\n"
         end
         reply_text += "created_at: #{response['created_at']}\n"
-        unless response['deleted_time'] == 0
-          reply_text += "deleted_time: #{response['deleted_time']}\n"
-        end
         if (response['collaborator_id']) then
           reply_text += "collaborator_id: #{response['collaborator_id']}\n"
           reply_text += "collaborator_email: #{response['collaborator_email']}\n"
