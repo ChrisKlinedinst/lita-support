@@ -117,6 +117,9 @@ module Lita
         if (response['mrr']) then
           reply_text += "mrr: #{response['mrr']}\n"
         end
+        if (response['members']) then
+          reply_text += "members: #{response['members']}\n"
+        end
         reply_text += "created_at: #{response['created_at']}\n"
         if (response['collaborator_id']) then
           reply_text += "collaborator_id: #{response['collaborator_id']}\n"
