@@ -2,7 +2,6 @@ require 'lita'
 require 'net/http'
 require 'uri'
 require 'json'
-require 'colorize'
 
 module Lita
   module Handlers
