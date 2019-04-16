@@ -2,6 +2,7 @@ require 'lita'
 require 'net/http'
 require 'uri'
 require 'json'
+require 'colorize'
 
 module Lita
   module Handlers
@@ -124,7 +125,7 @@ module Lita
           reply_text += "members: #{response['members']}\n"
         end
         if (response['balance']) then
-          reply_text += "balance: #{response['balance']}\n"
+          reply_text += "balance: #{response['balance']}\n".red
         end
         if (response['coupon']) then
           reply_text += "coupon: #{response['coupon']}\n"
