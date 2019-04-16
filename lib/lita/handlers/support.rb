@@ -123,6 +123,12 @@ module Lita
         if (response['members']) then
           reply_text += "members: #{response['members']}\n"
         end
+        if (response['balance']) then
+          reply_text += "balance: #{response['balance']}\n"
+        end
+        if (response['coupon']) then
+          reply_text += "coupon: #{response['coupon']}\n"
+        end
         reply_text += "created_at: #{response['created_at']}\n"
         if (response['collaborator_id']) then
           reply_text += "collaborator_id: #{response['collaborator_id']}\n"
