@@ -21,6 +21,9 @@ module Lita
             },
             organization_id: {
               short: "u"
+            },
+            name: {
+              short: "n"
             }
           }
         )
