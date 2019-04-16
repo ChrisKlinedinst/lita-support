@@ -117,11 +117,11 @@ module Lita
         if (response['plan_name']) then
           reply_text += "plan_name: #{response['plan_name']}\n"
         end
-        if (response['mrr']) then
-          reply_text += "mrr: #{response['mrr']}\n"
-        end
         if (response['members']) then
           reply_text += "members: #{response['members']}\n"
+        end
+        if (response['mrr']) then
+          reply_text += "mrr: #{response['mrr']}\n"
         end
         if (response['balance']) then
           reply_text += "balance: #{response['balance']}\n"
