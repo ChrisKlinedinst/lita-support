@@ -16,37 +16,11 @@ module Lita
           :lookup_user,
           command: true,
           kwargs: {
-            alert_id: {
-              short: "a"
-            },
-            dashboard_id: {
-              short: "d"
-            },
             email: {
               short: "e"
             },
-            instrument_id: {
-              short: "i"
-            },
-            metric_id: {
-              short: "m"
-            },
             organization_id: {
               short: "u"
-            },
-            stream_id: {
-              short: "s"
-            },
-            space_id: {
-              short: "c"
-            },
-            url: {},
-            env: {
-              default: "production"
-            },
-            verbose: {
-              short: "v",
-              boolean: false
             }
           }
         )
