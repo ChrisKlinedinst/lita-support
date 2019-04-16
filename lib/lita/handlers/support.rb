@@ -124,8 +124,8 @@ module Lita
         if (response['members']) then
           reply_text += "members: #{response['members']}\n"
         end
-        if (response['balance']) then
-          reply_text += "balance: #{response['balance']}\n".red
+        if (response['balance' != '$0.00']) then
+          reply_text += "balance: #{response['balance']}\n"
         end
         if (response['coupon']) then
           reply_text += "coupon: #{response['coupon']}\n"
